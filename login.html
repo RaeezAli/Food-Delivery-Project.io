@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/Login/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+          .content-auto {
+            content-visibility: auto;
+          }
+        }
+      </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+
+    <header class="Header">
+        <div class="navbar bg-base-100 justify-center">
+            <div class="head navbar-center">
+              <a class="text-xl flex font-bold">FOOD <span class="logo" >HUB.</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="login-Sec">
+        <div class="form-data form card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <form class="data-input card-body">
+              <div class="form-control">
+                <label class="label">
+                  <span class="text label-text">Email</span>
+                </label>
+                <input type="email" placeholder="email" class="email-input input input-bordered" required />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="text label-text">Password</span>
+                </label>
+                <input type="password" placeholder="password" class="password-input input input-bordered" required />
+              </div>
+              <div class="form-control mt-6">
+                <button class="login-Btn btn btn-primary">Login</button>
+              </div>
+
+                <div class="margin-section">
+
+                  <div class="margin"></div>
+                  <div><span>Or</span></div>
+                  <div class="margin"></div>
+
+              </div>
+
+              <div class="button-section">
+
+                  <button type="button" class="login-google-button"> <img class="gg-logo" src="Images/google image.png" alt="" srcset=""> Login with Google</button>
+              </div>
+
+            </form>
+          </div>
+    </div>
+
+
+    <script type="module" src="Login/main.js"></script>
+    
+</body>
+</html>

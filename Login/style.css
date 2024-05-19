@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.Header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.logo {
+    color: rgb(255 141 41);
+}
+
+.login-Sec {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/Images/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.margin-section {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.margin-section .margin {
+    height: 1px;
+    width: 40%;
+    background-color: black;
+} 
+
+.margin-section span {
+    margin: 0 10px;
+}
+
+.button-section {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-section .login-google-button {
+    width: 100%;
+    height: 40px;
+    border-radius: 7px;
+    margin: 5px 0 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.gg-logo {
+    width: 17px;
+    margin-right: 10px;
+}
+
+button {
+    font-weight: bold;
+}
+
+.text {
+    font-weight: 600;
+}
+
+@media screen and (max-width: 450px) {
+
+    .form {
+        width: 90%;
+        height: 25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        background-color: rgba(255, 255, 255, 0.226);
+    }
+
+    .form-data {
+        width: 90%;
+    }
+
+    .data-input {
+        width: 100%;
+    }
+}

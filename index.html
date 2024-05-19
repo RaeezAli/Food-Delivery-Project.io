@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+      </style>
+  
+</head>
+<body>
+
+  <header class="Header">
+        <div class="navbar bg-base-100">
+          <div class="navbar-start">
+              <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                  <li><a href="#home-Sec">Home</a></li>
+                  <li><a href="#about-Sec">About Us</a></li>
+                  <li><a href="#food-Sec">Best Selling Items</a></li>
+                  <li><a href="#reservations">Reservation</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="navbar-center">
+              <a class="head-logo text-xl flex font-bold">FOOD <span class="logo" >HUB.</span></a>
+            </div>
+            <div class="navbar-end">
+                <div class="dropdown dropdown-end">
+                  <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <div class="indicator ">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cart-btn" onclick="cartBtn()" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                        <span class="badge badge-sm indicator-item cart-count" id="cart-count">0</span>
+                      </div>
+                    </div>
+                    <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                    </div>
+                  </div>
+              <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                  <div class="w-10 rounded-full">
+                    <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  </div>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                  <li class="logout-btn"><a>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div id="cart-popup" class="cart-popup">
+        <h4>Shopping Cart</h4>
+        <table id="cart-items">
+          <thead>
+            <tr>
+              <th>Items</th>
+              <th>#</th>
+              <th>Price</th>
+              <th>Total</th>
+            </tr>
+            <tbody>
+              
+            </tbody>
+          </thead>
+        </table>
+        <p>Total <span id="cart-total">0.00</span></p>
+        <a class="cart-close"><i class="fa-regular fa-circle-xmark close-cart" onclick="cartClose()"></i></a>
+    </div>
+    
+    <main class="main">
+      
+      <div class="home-Sec" id="home-Sec">
+
+        <div class="left">
+          <p class="heading1">Eat Sleep And</p>
+          <p class="heading2">Supper delicious Burger in town!</p>
+          <p class="heading3">Food is any substance consumed to provide nutritional support for an organism.</p>
+          <div class="btn-Sec my-6">
+            <button id="btn" class="button px-8 py-3">
+              Book a Table
+            </button>
+          </div>
+        </div>
+        <div class="right">
+          <img src="Images/hero-banner.png" alt="">
+        </div>
+      </div>
+
+    </main>
+
+    <section class="about-Sec" id="about-Sec">
+      
+      <div class="left">
+        <img class="disc" src="./Images/sale-shape-red.png" alt="">
+      </div>
+      <div class="right">
+        <p class="heading">Caferio, Burgers, and Best Pizzas in Town!</p>
+        <p class="description">The restaurants in Hangzhou also catered to many northern Chinese who had fled south from Kaifeng during the Jurchen invasion of the 1120s, while it is also known that many restaurants were run by families.</p>
+        <ul class="detail">
+          <li><i class="fa-solid fa-circle-check"></i>Delicious & Healthy Foods</li>
+          <li><i class="fa-solid fa-circle-check"></i>Spacific Family And Kids Zone</li>
+          <li><i class="fa-solid fa-circle-check"></i>Music & Other Facilities</li>
+          <li><i class="fa-solid fa-circle-check"></i>Fastest Food Home Delivery</li>
+        </ul>
+        <div class="btn-Sec my-6">
+          <button class="button px-8 py-3">
+            Order Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="food-Sec" id="food-Sec">
+
+      <div class="desc">
+        <p class="heading1">Popular Dishes</p>
+        <p class="heading2">Our Delicious Foods</p>
+        <p class="heading3">Food is any substance consumed to provide nutritional support for an organism.</p> 
+      </div>
+      
+      <div class="food-desc">
+        <div class="food-item">
+          <div class="food-card card card-compact w-96 bg-base-100 shadow-xl">
+            <div class="image-1"></div>
+            <div class="food-details card-body">
+              <h2 class="food-title card-title">Burger King Whopper</h2>
+              <p class="font-bold">PRICE:
+
+                490.00 Rs.
+                <span class="reduce line-through">590.00 Rs.</span></p>
+                <div class="rating rating-md">
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" checked />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                </div>
+                <div class="card-actions justify-end">
+                <button class="btn btn-primary Add-to-Cart" onclick="AddToCart('Burger King Whopper',490.00)">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-item">
+          <div class="food-card card card-compact w-96 bg-base-100 shadow-xl">
+            <div class="image-2"></div>
+            <div class="card-body">
+              <h2 class="card-title">Bell Burrito Supreme</h2>
+              <p class="font-bold">PRICE: 590.00 Rs.
+                <span class="reduce line-through">690.00 Rs.</span></p>
+                <div class="rating rating-md">
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" checked />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                </div>
+                <div class="card-actions justify-end">
+                  <button class="btn btn-primary Add-to-Cart" onclick="AddToCart('Bell Burrito Supreme',590.00)">Add to Cart</button>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-item">
+          <div class="food-card card card-compact w-96 bg-base-100 shadow-xl">
+            <div class="image-3"></div>
+            <div class="card-body">
+              <h2 class="card-title">Fried Chicken Unlimited</h2>
+              <p class="font-bold">PRICE:
+
+                490.00 Rs.
+                <span class="reduce line-through">
+                  690.00 Rs.
+                </span></p>
+                <div class="rating rating-md">
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" checked />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                </div>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary Add-to-Cart" onclick="AddToCart('Fried Chicken Unlimited',490.00)">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-item">
+          <div class="food-card card card-compact w-96 bg-base-100 shadow-xl">
+            <div class="image-4"></div>
+            <div class="card-body">
+              <h2 class="card-title">Wendy's Chicken</h2>
+              <p class="font-bold">PRICE:
+
+                300.00 Rs.
+                <span class="reduce line-through">390.00 Rs.</span></p>
+                <div class="rating rating-md">
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" checked />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                </div>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary Add-to-Cart" onclick="AddToCart(`Wendy's Chicken`,300.00)">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-item">
+          <div class="food-card card card-compact w-96 bg-base-100 shadow-xl">
+            <div class="image-5"></div>
+            <div class="card-body">
+              <h2 class="card-title">Kung Pao Chicken BBQ</h2>
+              <p class="font-bold">PRICE: 
+                
+                590.00
+                <span class="reduce line-through">690.00</span></p>
+                <div class="rating rating-md">
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" checked />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                </div>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary Add-to-Cart" onclick="AddToCart('Kung Pao Chicken BBQ',590.00)">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="food-item">
+          <div class="food-card card card-compact w-96 bg-base-100 shadow-xl">
+            <div class="image-6"></div>
+            <div class="card-body">
+              <h2 class="card-title">White Castle Pizza</h2>
+              <p class="font-bold">PRICE:
+
+                490.00 Rs.
+                <span class="reduce line-through">
+                  690.00 Rs.
+                </span></p>
+                <div class="rating rating-md">
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" checked />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                </div>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary Add-to-Cart" onclick="AddToCart('White Castle Pizza',490.00)">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+
+    <section class="Blogs-Sec">
+
+      <h1> <span class="line-through">DISCOUNTS</span> UPTO 50%</h1>
+
+      <div class="Blogs">
+        <div class="left-Sec">
+          <h2 class="heading1">50% Off Now!</h2>
+          <h2 class="heading2">Discount For Delicious Tasty Burgers!</h2>
+          <h6 class="heading3">Sale off 50% only this week</h6>
+        </div>
+
+        <div class="right-Sec">
+
+          <div class="top-Sec">
+
+            <div class="top-left">
+              <h2 class="heading1">Delicious <br> Pizza</h2>
+              <h2 class="heading2">50% off Now</h2>
+              <!-- <h6 class="heading3">Sale off 50% only this week</h6> -->
+            </div>
+
+            <div class="top-right">
+              <h2 class="heading1">American <br> Burgers</h2>
+              <h2 class="heading2">50% off Now</h2>
+            </div>
+            
+          </div>
+
+          <div class="bottom-Sec">
+            <h2 class="heading1">Tasty <br> Buzzed <br> Pizza</h2>
+            <h2 class="heading2">50% off Now</h2>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+    
+    <section class="review">
+
+      <h1 class="heading"> Customer's <span>Review</span> </h1>
+
+      <div class="box-container">
+
+        <div class="box">
+            <img src="/Images/avatar-1.jpg" alt="">
+            <h3>Mohsin</h3>
+            <p>They are Best in their Job!!</p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+        </div>
+
+        <div class="box">
+          <img src="/Images/avatar-2.jpg" alt="">
+            <h3>Younis</h3>
+            <p>I Love Buying Shoes From this Website!! Highly recommended for anyone seeking a great combination of fashion and comfort.</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="/Images/avatar-3.jpg" alt="">
+            <h3>Dil Nawaz</h3>
+            <p>Bhai Boht Mahenge Shoes h saste dikhao!</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+        </div>
+
+    </div>
+
+    </section>
+ 
+    <section class="reservations" id="reservations">
+
+      <h1 class="heading"> Reservations </h1>
+      <div class="reserve">
+        <div class="image-container">
+        <img src="/Images/cta-banner.png" alt="">
+      </div>
+      
+      <div class="form-Sec">
+        
+        <div class="details">
+          <label class="input input-bordered flex items-center gap-2">
+            <input type="text" class="grow" placeholder="Email" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70"><path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" /><path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" /></svg>
+          </label>
+          <label class="input input-bordered flex items-center gap-2">
+            <input type="text" class="grow" placeholder="Username" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" /></svg>
+          </label>
+          <label class="input input-bordered flex items-center gap-2">
+            
+            <input type="date" class="grow w-full" />
+          </label>
+          
+          <select class="select w-full ">
+            <option disabled selected>Pesrons</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+          </select>
+
+
+          <input type="submit" value="Submit" class="btn" />
+
+        </div>
+
+      </div>
+      
+    </div>
+
+    </section>    
+    
+    <footer class="footer-Sec">
+      <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <nav class="grid grid-flow-col gap-4">
+          <a class="link link-hover">About us</a>
+          <a class="link link-hover">Contact</a>
+          <a class="link link-hover">Jobs</a>
+          <a class="link link-hover">Press kit</a>
+        </nav> 
+        <nav>
+          <div class="grid grid-flow-col gap-4">
+            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg></a>
+            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></a>
+            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
+          </div>
+        </nav> 
+        <aside>
+          <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+        </aside>
+      </footer>
+    </footer>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="main.js"></script>
+    
+  </body>
+</html>
