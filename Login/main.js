@@ -53,7 +53,7 @@ googleLoginBtn.addEventListener('click', () => {
       console.log("User signed in with Google:", user.displayName);
 
       const photoURL = user.photoURL;
-
+      localStorage.setItem("userName", user.displayName);
       localStorage.setItem('userPhotoURL', photoURL);
       window.location.href = 'index.html'; // Redirect to index.html after login
     })

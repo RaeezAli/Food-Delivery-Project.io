@@ -26,8 +26,10 @@ const cartClosed = document.querySelectorAll('.cart-close');
 const logoutBtn = document.querySelector('.logout-btn');
 const reservationsCollection = collection(db, 'reservations');
 const userPhotoURL = localStorage.getItem('userPhotoURL');
+const userName = localStorage.getItem('userName');
 
 document.getElementById('user-avatar').src = userPhotoURL;
+document.getElementById('user-name').textContent = userName;
 logoutBtn.addEventListener('click', (e) => {
   e.preventDefault();
 
