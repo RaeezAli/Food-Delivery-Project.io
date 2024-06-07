@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
-import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCq1M-4yxROOTDkMdg-NpmX5QuNlbz4HMc",
@@ -12,75 +12,70 @@ const firebaseConfig = {
     measurementId: "G-XXBW3DJQ5T"
   };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const auth = getAuth();
-const provider = new GoogleAuthProvider();
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
 
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in
+    const userData = {
+      email: user.email,
+      uid: user.uid,
+      displayName: user.displayName || '',
+      photoURL: user.photoURL || ''
+    };
 
-const submit = document.querySelector('.login-Btn');
-const loginWithGoogle = document.querySelector(".login-google-button");
-
-
-
-
-
-submit.addEventListener('click', () => {
-
-    let email = document.querySelector('.email-input');
-    let password = document.querySelector('.password-input');
-
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    const q = query(collection(fdb, "users"), where("Uid", "==",result.user.uid));
-
-    const querySnapshot = getDocs(q);
-    querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-
-        addItemToLocalStorage(doc.data())
-    });
-    // ...
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-    });
-
-
-    window.location.href = 'index.html';
-
-
+    // Store user data in Firestore
+    db.collection('users').doc(user.uid).set(userData)
+      .then(() => {
+        console.log('User data stored in Firestore');
+      })
+      .catch((error) => {
+        console.error('Error storing user data:', error);
+      });
+  } else {
+    // User is signed out
+    console.log('No user signed in');
+  }
 });
 
-const loginWithGoogleFunction = () => {
+const loginForm = document.querySelector('#loginForm'); // Use ID selector
+const googleLoginBtn = document.querySelector('.login-google-button');
 
-    console.log('Login with Google');
-    signInWithPopup(auth, provider)
-        .then(async (result) => {
+googleLoginBtn.addEventListener('click', () => {
+  const provider = new GoogleAuthProvider();
 
+  signInWithPopup(auth, provider)
+    .then((result) => {
 
-            const q = query(collection(fdb, "users"), where("Uid", "==",result.user.uid));
+      const user = result.user;
+      console.log("User signed in with Google:", user.displayName);
 
-            const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
+      const photoURL = user.photoURL;
 
-                addItemToLocalStorage(doc.data())
-            });
+      localStorage.setItem('userPhotoURL', photoURL);
+      window.location.href = 'index.html'; // Redirect to index.html after login
+    })
+    .catch((error) => {
+      console.error("Google login error:", error.message);
+      // Handle login error (display error message to user, etc.)
+    });
+});
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const email = document.querySelector('.email-input').value;
+    const password = document.querySelector('.password-input').value;
 
-
-
-            window.location.href("index.html");
-
-        }).catch((error) => {
-
-            console.log(error);
-        });
-}
-
-loginWithGoogle.addEventListener('click', loginWithGoogleFunction);
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // User logged in successfully
+        console.log("User logged in:", userCredential.user.email);
+        window.location.href = 'index.html'; // Redirect to index.html after login
+      })
+      .catch((error) => {
+        console.error("Login error:", error.message);
+        // Handle login error (display error message to user, etc.)
+      });
+  });

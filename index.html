@@ -40,7 +40,7 @@
                 <div class="dropdown dropdown-end">
                   <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                     <div class="indicator ">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cart-btn" onclick="cartBtn()" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="cartBtn h-5 w-5 cart-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                         <span class="badge badge-sm indicator-item cart-count" id="cart-count">0</span>
                       </div>
                     </div>
@@ -50,7 +50,7 @@
               <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                   <div class="w-10 rounded-full">
-                    <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    <img id="user-avatar" alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                   </div>
                 </div>
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
@@ -77,7 +77,8 @@
           </thead>
         </table>
         <p>Total <span id="cart-total">0.00</span></p>
-        <a class="cart-close"><i class="fa-regular fa-circle-xmark close-cart" onclick="cartClose()"></i></a>
+        <a class="cart-close"><i class="cart-close fa-regular fa-circle-xmark close-cart"></i></a>
+        <div class="buy-sec"><button class="buy-btn">Buy</button></div>
     </div>
     
     <main class="main">
@@ -138,8 +139,7 @@
             <div class="food-details card-body">
               <h2 class="food-title card-title">Burger King Whopper</h2>
               <p class="font-bold">PRICE:
-
-                490.00 Rs.
+                <span class="item-price">490.00</span>Rs.
                 <span class="reduce line-through">590.00 Rs.</span></p>
                 <div class="rating rating-md">
                   <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
@@ -149,7 +149,7 @@
                   <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
                 </div>
                 <div class="card-actions justify-end">
-                <button class="btn btn-primary Add-to-Cart" onclick="AddToCart('Burger King Whopper',490.00)">Add to Cart</button>
+                <button class="add-btn btn btn-primary Add-to-Cart" >Add to Cart</button>
               </div>
             </div>
           </div>
@@ -159,7 +159,8 @@
             <div class="image-2"></div>
             <div class="card-body">
               <h2 class="card-title">Bell Burrito Supreme</h2>
-              <p class="font-bold">PRICE: 590.00 Rs.
+              <p class="font-bold">PRICE: 
+                <span class="item-price">590.00</span>Rs.
                 <span class="reduce line-through">690.00 Rs.</span></p>
                 <div class="rating rating-md">
                   <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
@@ -169,7 +170,7 @@
                   <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
                 </div>
                 <div class="card-actions justify-end">
-                  <button class="btn btn-primary Add-to-Cart" onclick="AddToCart('Bell Burrito Supreme',590.00)">Add to Cart</button>
+                  <button class="add-btn btn btn-primary Add-to-Cart">Add to Cart</button>
                 </div>
             </div>
           </div>
@@ -180,8 +181,8 @@
             <div class="card-body">
               <h2 class="card-title">Fried Chicken Unlimited</h2>
               <p class="font-bold">PRICE:
-
-                490.00 Rs.
+                <span class="item-price">490.00</span>
+                 Rs.
                 <span class="reduce line-through">
                   690.00 Rs.
                 </span></p>
@@ -193,7 +194,7 @@
                   <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
                 </div>
               <div class="card-actions justify-end">
-                <button class="btn btn-primary Add-to-Cart" onclick="AddToCart('Fried Chicken Unlimited',490.00)">Add to Cart</button>
+                <button class="add-btn btn btn-primary Add-to-Cart">Add to Cart</button>
               </div>
             </div>
           </div>
@@ -204,8 +205,8 @@
             <div class="card-body">
               <h2 class="card-title">Wendy's Chicken</h2>
               <p class="font-bold">PRICE:
-
-                300.00 Rs.
+                <span class="item-price">300.00</span>
+                Rs.
                 <span class="reduce line-through">390.00 Rs.</span></p>
                 <div class="rating rating-md">
                   <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
@@ -215,7 +216,7 @@
                   <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
                 </div>
               <div class="card-actions justify-end">
-                <button class="btn btn-primary Add-to-Cart" onclick="AddToCart(`Wendy's Chicken`,300.00)">Add to Cart</button>
+                <button class="add-btn btn btn-primary Add-to-Cart">Add to Cart</button>
               </div>
             </div>
           </div>
@@ -227,7 +228,7 @@
               <h2 class="card-title">Kung Pao Chicken BBQ</h2>
               <p class="font-bold">PRICE: 
                 
-                590.00
+                <span class="item-price">590.00</span>
                 <span class="reduce line-through">690.00</span></p>
                 <div class="rating rating-md">
                   <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
@@ -237,7 +238,7 @@
                   <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
                 </div>
               <div class="card-actions justify-end">
-                <button class="btn btn-primary Add-to-Cart" onclick="AddToCart('Kung Pao Chicken BBQ',590.00)">Add to Cart</button>
+                <button class="add-btn btn btn-primary Add-to-Cart">Add to Cart</button>
               </div>
             </div>
           </div>
@@ -249,7 +250,7 @@
               <h2 class="card-title">White Castle Pizza</h2>
               <p class="font-bold">PRICE:
 
-                490.00 Rs.
+                <span class="item-price">490.00 </span> Rs.
                 <span class="reduce line-through">
                   690.00 Rs.
                 </span></p>
@@ -261,7 +262,7 @@
                   <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
                 </div>
               <div class="card-actions justify-end">
-                <button class="btn btn-primary Add-to-Cart" onclick="AddToCart('White Castle Pizza',490.00)">Add to Cart</button>
+                <button class="add-btn btn btn-primary Add-to-Cart">Add to Cart</button>
               </div>
             </div>
           </div>
@@ -368,21 +369,21 @@
       
       <div class="form-Sec">
         
-        <div class="details">
+        <form id="reservation-form" class="details">
           <label class="input input-bordered flex items-center gap-2">
-            <input type="text" class="grow" placeholder="Email" />
+            <input id="email-input" type="text" class="grow" placeholder="Email" required />
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70"><path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" /><path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" /></svg>
           </label>
           <label class="input input-bordered flex items-center gap-2">
-            <input type="text" class="grow" placeholder="Username" />
+            <input id="username-input" type="text" class="grow" placeholder="Username" required/>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" /></svg>
           </label>
           <label class="input input-bordered flex items-center gap-2">
             
-            <input type="date" class="grow w-full" />
+            <input id="date-input" type="date" class="grow w-full" required />
           </label>
           
-          <select class="select w-full ">
+          <select id="persons-select" class="select w-full " required>
             <option disabled selected>Pesrons</option>
             <option>1</option>
             <option>2</option>
@@ -401,7 +402,7 @@
 
           <input type="submit" value="Submit" class="btn" />
 
-        </div>
+        </form>
 
       </div>
       
@@ -431,7 +432,7 @@
     </footer>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="main.js"></script>
+    <script type="module" src="app.js"></script>
     
   </body>
 </html>

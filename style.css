@@ -95,6 +95,17 @@
     color: black;
 }
 
+.buy-sec {
+    width: 100%;
+    height: 0.4rem;
+    display: flex;
+}
+
+.buy-sec button {
+    display: flex;
+    font-size: medium;
+}
+
 .main {
     width: 100%;
     height: 100vh;
